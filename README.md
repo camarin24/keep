@@ -16,4 +16,4 @@ Iniciar App
 -----------------------
 -   Ingresar al directorio Server, abrir una consola de comandos y ejecutar:
     - npm install
-    -npm start
+    - npm start
