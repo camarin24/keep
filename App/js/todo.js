@@ -27,6 +27,7 @@ app.controller("todoController",function($scope,$http){
               }
           }          
     }
+
     $scope.model = {
         responsable:"",
         tarea:"",
@@ -53,9 +54,6 @@ app.controller("todoController",function($scope,$http){
         window.localStorage.setItem("todo",JSON.stringify(tasks));
  }
 
-    $scope.$watch('tareas', function(newVal, oldVal) {
-        $scope.updateTasks(newVal);
-    },true);
 
     
 
