@@ -1,27 +1,52 @@
-(function($,angular){
-  var app = angular.module('warframe',['ngRoute']);
-  app.config(function($routeProvider,$locationProvider){
+(function ($, angular, helpers) {
+  helpers.init();
+  var app = angular.module('keep', ['ngRoute']);
+  app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
-    .when('/', {
-      templateUrl : 'pages/login.html',
-      controller  : 'mainController'
-    })
-    .when('/registro', {
-      templateUrl : 'pages/registro.html',
-      controller  : 'registroController'
-    })
-    .when('/contact', {
-      templateUrl : 'pages/contact.html',
-      controller  : 'contactController'
-    });
+      .when('/', {
+        templateUrl: 'templates/keep.html',
+        controller: 'mainController'
+      })
+      .when('/friends', {
+        templateUrl: 'templates/friends.html',
+        controller: 'friendsController'
+      }).
+      when('/archivements',{
+        templateUrl: "templates/archivements.html",
+        controller:"archivementsController"
+      }).
+      when('/shared',{
+        templateUrl: "templates/shared.html",
+        controller:"sharedController"
+      }).
+      when('/trash',{
+        templateUrl: "templates/trash.html",
+        controller:"trashController"
+      })
 
 
   });
-  app.controller("mainController",function($scope){
+
+  app.controller("friendsController", function ($scope) {
+    $scope.message = "hello amigos";
+  })
+
+  app.controller("mainController", function ($scope) {
     $scope.message = "hello";
-    $scope.backgroundClass = "login-background";
+  });
+
+  app.controller("archivementsController", function ($scope) {
+    $scope.message = "hello";
+  });
+  app.controller("archivementsController", function ($scope) {
+    $scope.message = "hello archivements";
+  });
+  app.controller("sharedController",function($scope){
+    $scope.message = "Hola Shareds";
   })
-  app.controller("registroController",function($scope){
-    $scope.message = "hello registro";
+
+  app.controller("trashController",function($scope){
+    $scope.message = "Hola trash";
   })
-})(jQuery,angular)
+
+})(jQuery, angular, helpers)

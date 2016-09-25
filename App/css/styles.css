@@ -1,0 +1,22 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+@import 'https://fonts.googleapis.com/css?family=Arvo';
+@import 'https://fonts.googleapis.com/css?family=Lobster';
+body{
+    font-family: 'Lobster', cursive;
+    font-size: 13pt;
+}
+.list-group a.list-group-item{
+    padding: 20px 5px 20px 10px !important;
+}
+.navbar{
+    margin-bottom: 0px;
+}
+.col-md-2.panel.panel-body{
+    position: fixed;
+    height: 100%;
+    padding-top: 0px;
+    padding-right: 0px; 
+    padding-left: 10px;
+    background-color: #e2e2e2;
+}
