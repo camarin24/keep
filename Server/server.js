@@ -9,22 +9,34 @@ var ip_address = process.env.IP || '127.0.0.1';
 app = express();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
-
-
 /*Metodos de webservices*/
 app.get("/tasks", function (req, res) {
   db.query("select * from tareas", [], function (err, rows) {
-      console.log(rows)
     res.json(rows);
   })
 });
 
+app.post("/ValidarUsuario", function (req, res) {
+  db.query("Select * from usuarios where email = ? and contrasenia=?", [req.body.Usuario, req.body.Contra], function (err, rows) {
+    res.json(rows);
+  })
+});
+app.post("/ValidarRegistro", function (req, res) {
+  db.query("Select * from usuarios where email = ?", [req.body.Usuario], function (err, rows) {
+    res.json(rows);
+  })
+});
+app.post("/RegistrarUsuario", function (req, res) {
+  db.query("Insert into usuarios (nombre,email,contrasenia) values(?,?,?)", [req.body.Nombre, req.body.Usuario, req.body.Contra], function (err) {
+    res.json(err);
+  })
+});
 
 app.listen(port, ip_address);
 

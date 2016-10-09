@@ -11,42 +11,46 @@
         templateUrl: 'templates/friends.html',
         controller: 'friendsController'
       }).
-      when('/archivements',{
+      when('/archivements', {
         templateUrl: "templates/archivements.html",
-        controller:"archivementsController"
+        controller: "archivementsController"
       }).
-      when('/shared',{
+      when('/shared', {
         templateUrl: "templates/shared.html",
-        controller:"sharedController"
+        controller: "sharedController"
       }).
-      when('/trash',{
+      when('/trash', {
         templateUrl: "templates/trash.html",
-        controller:"trashController"
+        controller: "trashController"
       })
-
-
   });
 
   app.controller("friendsController", function ($scope) {
+    if (window.localStorage.UsuarioActivo == false) {
+      window.location.href = location.origin + '/APP/login';
+    }
     $scope.message = "hello amigos";
-  })
-
-  app.controller("mainController", function ($scope) {
-    $scope.message = "hello";
   });
 
+  app.controller("mainController", function ($scope) {
+    if (window.localStorage.UsuarioActivo == false) {
+      window.location.href = location.origin + '/APP/login';
+    } else {
+      $scope.message = "hello";
+
+    }
+  });
   app.controller("archivementsController", function ($scope) {
     $scope.message = "hello";
   });
   app.controller("archivementsController", function ($scope) {
     $scope.message = "hello archivements";
   });
-  app.controller("sharedController",function($scope){
+  app.controller("sharedController", function ($scope) {
     $scope.message = "Hola Shareds";
-  })
+  });
 
-  app.controller("trashController",function($scope){
+  app.controller("trashController", function ($scope) {
     $scope.message = "Hola trash";
-  })
-
-})(jQuery, angular, helpers)
+  });
+})(jQuery, angular, helpers);
