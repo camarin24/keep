@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="keepLogin">
 
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/bootstrap-material-design.css">
-  <link rel="stylesheet" href="css/ripples.css">
-  <link rel="stylesheet" href="css/font-awesome.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/font-awesome.css">
+  <link rel="stylesheet" href="../css/StyleLogin.css">
 </head>
 
-<body>
-
-  <body ng-controller="mainController">
+  <body ng-controller="loginController">
     <div id="main">
-      <div class="" ng-view></div>
+       <div class="row col-lg-offset-4 col-lg-4">
+         <div class="Title">
+           {{Title}}
+          </div>
+          <div class="Conten">
+            <input type="email" placeholder="Email" ng-model="Users.email"><br>
+            <input type="password" placeholder="Contraseña" ng-model="Users.contra"><br>
+              <button class="btn btn-danger btn-raised" ng-click="ValidarUsers()">Ingresar</button>
+              <a href="/App/registro/" class="btn btn-danger btn-raised"  data-target="#">Registrar</a>
+          </div>
+        </div>
     </div>
 
-
-
-
-    <script src="js/jquery.js"></script>
-    <script src="js/material.js"></script>
-    <script src="js/ripples.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-route.js"></script>
-    <script src="js/app.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/material.js"></script>
+    <script src="../js/ripples.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.js"></script>
+    <script src="../js/helpers.js"></script>
+    <script src="../js/login.js"></script>
   </body>
 
 </html>
