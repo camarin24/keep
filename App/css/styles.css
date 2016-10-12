@@ -2,8 +2,10 @@
 @import 'https://fonts.googleapis.com/css?family=Raleway';
 @import 'https://fonts.googleapis.com/css?family=Arvo';
 @import 'https://fonts.googleapis.com/css?family=Lobster';
+@import 'https://fonts.googleapis.com/css?family=Gloria+Hallelujah';
+@import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
 body{
-    font-family: 'Lobster', cursive;
+    font-family: 'Kaushan Script', cursive;
     font-size: 13pt;
 }
 .list-group a.list-group-item{

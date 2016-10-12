@@ -9,7 +9,7 @@
       })
       .when('/friends', {
         templateUrl: 'templates/friends.html',
-        controller: 'friendsController'
+        controller: 'friendsController' 
       }).
       when('/archivements',{
         templateUrl: "templates/archivements.html",
