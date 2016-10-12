@@ -33,7 +33,7 @@ app.post("/ValidarRegistro", function (req, res) {
   })
 });
 app.post("/RegistrarUsuario", function (req, res) {
-  db.query("Insert into usuarios (nombre,email,contrasenia) values(?,?,?)", [req.body.Nombre, req.body.Usuario, req.body.Contra], function (err) {
+  db.query("Insert into usuarios (nombre,email,contrasenia) set ?,?,?", [req.body.Nombre, req.body.Usuario, req.body.Contra], function (err) {
     res.json(err);
   })
 });
