@@ -38,6 +38,12 @@ app.post("/RegistrarUsuario", function (req, res) {
   })
 });
 
+app.get("/GetAllNotes/:id",function(req,res){
+  db.query("select * from tareas where usuario = ?", [req.params.id], function (err, rows) {
+    res.json(rows);
+  })
+});
+
 app.listen(port, ip_address);
 
 
