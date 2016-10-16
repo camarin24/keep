@@ -22,6 +22,7 @@
     }
     $scope.Title = "Login";
     $scope.ValidarUsers = function () {
+
       $http({
         method: 'POST',
         url: "http://localhost:8081/ValidarUsuario",
@@ -46,29 +47,40 @@
       email: "",
       contra: ""
     }
+     $scope.Volver = function () {
+              window.location.href = location.origin + '/APP/login';
+     }
     $scope.Registrarse = function () {
-      $http({
-        method: 'POST',
-        url: "http://localhost:8081/ValidarRegistro",
-        data: { Usuario: $scope.Users.email }
-      }).then(function successCallback(response) {
-        if (response.data.length > 0)
-          alert("Ya existe");
-        else {
-          $http({
-            method: 'POST',
-            url: "http://localhost:8081/RegistrarUsuario",
-            data: { Nombre: $scope.Users.nombre, Usuario: $scope.Users.email, Contra: $scope.Users.contra }
-          }).then(function successCallback(response) {
-            alert("Registro exitoso");
-            window.location.href = location.origin + '/APP/login';
-          }, function errorCallback(response) {
-            console.log("errorcal" + response)
-          });
-        }
-      }, function errorCallback(response) {
-        console.log("errorcal" + response)
-      });
+      if ($scope.Users.nombre == "") {
+        alert("Todos los datos son requeridos")
+      } else if ($scope.Users.email == "") {
+        alert("Todos los datos son requeridos")
+      } else if ($scope.Users.contra == "") {
+        alert("Todos los datos son requeridos")
+      } else {
+        $http({
+          method: 'POST',
+          url: "http://localhost:8081/ValidarRegistro",
+          data: { Usuario: $scope.Users.email }
+        }).then(function successCallback(response) {
+          if (response.data.length > 0)
+            alert("Ya existe");
+          else {
+            $http({
+              method: 'POST',
+              url: "http://localhost:8081/RegistrarUsuario",
+              data: { Nombre: $scope.Users.nombre, Usuario: $scope.Users.email, Contra: $scope.Users.contra }
+            }).then(function successCallback(response) {
+              alert("Registro exitoso");
+              window.location.href = location.origin + '/APP/login';
+            }, function errorCallback(response) {
+              console.log("errorcal" + response)
+            });
+          }
+        }, function errorCallback(response) {
+          console.log("errorcal" + response)
+        });
+      }
     };
   });
 })(jQuery, angular, helpers);
