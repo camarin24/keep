@@ -5,7 +5,7 @@
 @import 'https://fonts.googleapis.com/css?family=Gloria+Hallelujah';
 @import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
 body{
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Roboto', cursive;
     font-size: 13pt;
 }
 .list-group a.list-group-item{
@@ -14,11 +14,108 @@ body{
 .navbar{
     margin-bottom: 0px;
 }
+.row{
+    margin-right: 0px !important;
+}
 .col-md-2.panel.panel-body{
     position: fixed;
+    min-width: 208px;
+    z-index: 10;
     height: 100%;
     padding-top: 0px;
     padding-right: 0px; 
     padding-left: 10px;
     background-color: #e2e2e2;
+}
+
+/**Estilos de las cartas*/
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: auto;
+  margin: 1rem;
+  position: relative;
+  width:100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.card .card-body{
+    padding: 10px 15px 10px 15px;
+}
+.card .card-body .card-head{
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 23px;
+    min-height: 38px;
+}
+.card .card-body .card-content{
+    word-break: break-all;
+}
+.card .card-body .card-footer{
+    background-color: #fdfdfd !important;
+    padding: 15px 0px 0px 0px;
+    opacity: 0;
+    transition: all .7s;
+    -webkit-transition: all .7s;
+    -moz-transition: all .7s;
+    -o-transition: all .7s;
+}
+.card .card-body .card-footer i:first-child{
+    margin: 0px 2px 0px 0px !important;
+}
+.card .card-body .card-footer i{
+    margin: 0px 5px 0px 5px;
+}
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  cursor: pointer;
+}
+.card:hover .card-footer{
+    opacity: 1;
+}
+.note-card{
+    padding: 10px 15px 10px 15px;
+}
+.note-card i{
+    margin-top: 5px;
+}
+
+.card input.take-note{
+    border: none;
+    width: 80%;
+}
+.search-card{
+    margin: 0px !important;
+    padding: 10px 15px 10px 15px;
+    width: 100%;
+    color: #c9c9c9;
+    background-color: #464646 !important;
+}
+.search-card input.take-search{
+    border: none;
+    width: 80%;
+    background-color: transparent; 
+    margin-left: 10px;
+}
+.search-card i{
+    margin-top: 1px;
+    font-size: 18pt;
+    color: #7d7d7d;
+}
+
+.navbar .navbar-form{
+    margin-top: 8px !important;
+    width: 54%;
+}
+.title{
+   min-width: 135px;
+}
+.search-focus{
+    background-color: #fff !important;
+}
+img.avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }

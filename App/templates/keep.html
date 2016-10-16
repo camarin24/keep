@@ -1,3 +1,31 @@
-<div>
-    {{message}}
+<div class="row">
+    <div class="col-lg-offset-1 col-lg-10">
+        <div class="card note-card">
+            <input type="text" class="take-note" placeholder="tomar una nota...">
+            <i class="fa fa-picture-o pull-right" aria-hidden="true" style="margin-left:10px;"></i>
+            <i class="fa fa-list-ul pull-right" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+<div class="row grid">
+	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 grid-item" ng-repeat="keep in keeps">
+		<div class="card">
+			<div class="card-body">
+				<div class="card-head" ng-if="keep.nombre != null">
+					{{keep.nombre}}
+				</div>
+                <div class="card-content">
+				    {{keep.descripcion}}
+                </div>
+                <div class="card-footer">
+                    <i class="fa fa-calendar-check-o" aria-hidden="true" data-toggle="tooltip" title="Añadir recordatorio" data-placement="bottom"></i>
+                    <i class="fa fa-share-alt" aria-hidden="true" data-toggle="tooltip" title="Compartir" data-placement="bottom"></i>
+                    <i class="fa fa-eyedropper" aria-hidden="true" data-toggle="tooltip" title="Cambiar color" data-placement="bottom"></i>
+                    <i class="fa fa-archive" aria-hidden="true" data-toggle="tooltip" title="Archivar" data-placement="bottom"></i>
+                    <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="Eliminar" data-placement="bottom"></i>
+                    <i class="fa fa-heart" aria-hidden="true" data-toggle="tooltip" title="Favorito" data-placement="bottom"></i>
+                </div>
+			</div>
+		</div>
+	</div>
 </div>

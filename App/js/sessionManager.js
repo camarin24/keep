@@ -15,7 +15,6 @@ var sessionManager = {
         }
     },
     isLoggedIn:function(){
-        debugger;
         var info = localStorage.getItem(this.constants.sessionKey);
         if (info == null || info == "") {
             return false;

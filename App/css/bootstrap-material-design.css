@@ -2706,7 +2706,7 @@ fieldset[disabled] .navbar .btn-link:focus {
 @media (max-width: 1199px) {
   .navbar .navbar-brand {
     height: 50px;
-    padding: 10px 15px;
+    /*padding: 10px 15px;*/
   }
   .navbar .navbar-form {
     margin-top: 10px;
@@ -2897,12 +2897,11 @@ fieldset[disabled] .navbar .btn-link:focus {
 .tooltip .tooltip-arrow {
   display: none;
 }
-.card {
-  /***** Make height equal to width (http://stackoverflow.com/a/6615994) ****/
+/*.card {
   display: inline-block;
   position: relative;
   width: 100%;
-  /**************************************************************************/
+
   border-radius: 2px;
   color: rgba(0,0,0, 0.87);
   background: #fff;
@@ -2957,6 +2956,7 @@ fieldset[disabled] .navbar .btn-link:focus {
 .card .card-footer a:first-child {
   left: -15px;
 }
+*/
 .modal-content {
   -webkit-box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
           box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
