@@ -1,23 +1,25 @@
 var helpers = {
     init: function () {
-        $.material.init(); 
-        $('[data-toggle="tooltip"]').tooltip();
+        $.material.init();
+        if ($('[data-toggle="tooltip"]').length > 0)
+            $('[data-toggle="tooltip"]').tooltip();
+
         var $search = $(".search-card");
-        $(".take-search").focusin(function(){
+        $(".take-search").focusin(function () {
             $search.toggleClass("search-focus");
             $search.find("i.fa-times").toggleClass("hidden");
         })
-        $(".take-search").focusout(function(){
+        $(".take-search").focusout(function () {
             $search.toggleClass("search-focus");
             $search.find("i.fa-times").toggleClass("hidden");
         })
     },
-    constants:{
-        isOpenMenu:true,
-        menu:$("#menu"),
-        content:$("#content")
+    constants: {
+        isOpenMenu: true,
+        menu: $("#menu"),
+        content: $("#content")
     },
-    server:"http://localhost:8081/",
+    server: "http://localhost:8081/",
     toServer: function (method, url, data, successCalback, errorCalback) {
         $.ajax({
             url: this.server + url,
@@ -39,19 +41,19 @@ var helpers = {
             }
         })
     },
-    setTimeout:function(timeout,callback){
-        setTimeout(function() {
+    setTimeout: function (timeout, callback) {
+        setTimeout(function () {
             callback();
         }, timeout);
     },
-    menu:function(){
-        if(this.constants.isOpenMenu){
+    menu: function () {
+        if (this.constants.isOpenMenu) {
             this.constants.isOpenMenu = false;
             this.constants.menu.removeClass("animated sladeInLeft");
             this.constants.menu.addClass("animated sladeOutLeft");
             this.constants.menu.hide("");
 
-        }else{
+        } else {
             this.constants.isOpenMenu = true;
             this.constants.menu.removeClass("animated sladeOutLeft");
             this.constants.menu.addClass("animated sladeInLeft");

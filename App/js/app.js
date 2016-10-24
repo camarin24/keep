@@ -30,7 +30,6 @@
   //sessionManager es una variable que tiene unos helpers para manejar la sesion
   //Investigar que es un middleware
   app.run(function ($rootScope, $location) {
-    
     $rootScope.$on('$routeChangeStart', function (event) {
       //Ponerle la negación en el if para que funcione, esta así para poder hacer las pruebas sin sesión
       if (sessionManager.isLoggedIn()) {

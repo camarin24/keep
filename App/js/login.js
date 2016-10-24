@@ -1,4 +1,4 @@
-(function ($, angular, helpers) {
+(function ($, angular, helpers,sessionManager) {
   helpers.init();
   var app = angular.module('keepLogin', ['ngRoute']);
   app.config(function ($routeProvider, $locationProvider) {
@@ -29,8 +29,8 @@
         data: { Usuario: $scope.Users.email, Contra: $scope.Users.contra }
       }).then(function successCallback(response) {
         if (response.data.length > 0) {
-          window.localStorage.setItem("UsuarioActivo", true);
-          window.location.href = location.origin + '/APP/?Nombre=' + response.data[0].nombre;
+         sessionManager.setSession(response.data[0]);
+          window.location.href = location.origin + '/APP/';
         }
         else
           alert("Usuario y/o contraseña incorrectos");
@@ -83,4 +83,4 @@
       }
     };
   });
-})(jQuery, angular, helpers);
+})(jQuery, angular, helpers, sessionManager);
