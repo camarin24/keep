@@ -32,7 +32,7 @@
   app.run(function ($rootScope, $location) {
     $rootScope.$on('$routeChangeStart', function (event) {
       //Ponerle la negación en el if para que funcione, esta así para poder hacer las pruebas sin sesión
-      if (sessionManager.isLoggedIn()) {
+      if (!sessionManager.isLoggedIn()) {
         console.log('DENY');
         event.preventDefault();
         location.href = "/App/Login";
@@ -48,7 +48,7 @@
 
   app.controller("mainController", function ($scope) {
     $scope.keeps = $scope.keeps;
-    console.log($scope.keeps)
+
     helpers.toServer("GET", "GetAllNotes/1", {}, function (data) {
       $scope.keeps = data;
       $scope.$apply();
@@ -76,5 +76,13 @@
 
   app.controller("trashController", function ($scope) {
     $scope.message = "Hola trash";
+  });
+   app.controller("dataUsersController", function ($scope) {
+     var session = sessionManager.getSession();
+      $scope.NameUser = session.nombre;
+      $scope.cerrar =  function()
+      {
+        sessionManager.logout();
+      }
   });
 })(jQuery, angular, helpers, sessionManager);

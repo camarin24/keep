@@ -14,13 +14,17 @@ var sessionManager = {
             return JSON.parse(info);
         }
     },
-    isLoggedIn:function(){
+    isLoggedIn:function(){ 
         var info = localStorage.getItem(this.constants.sessionKey);
         if (info == null || info == "") {
             return false;
         } else {
             return true;
         }
+    },
+    logout:function(){
+        localStorage.removeItem(this.constants.sessionKey);
+        location.href = '/App/login';
     }
 
 }

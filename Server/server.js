@@ -33,12 +33,23 @@ app.post("/ValidarRegistro", function (req, res) {
   })
 });
 app.post("/RegistrarUsuario", function (req, res) {
-  db.query("Insert into usuarios (nombre,email,contrasenia) set ?,?,?", [req.body.Nombre, req.body.Usuario, req.body.Contra], function (err) {
-    res.json(err);
+  var data = {
+    nombre: req.body.Nombre,
+    email: req.body.Usuario,
+    contrasenia: req.body.Contra
+  }
+  db.query("Insert into usuarios set ?", data, function (err) {
+    if (err) {
+     console.log(err)
+     res.status(400).send('Ocurrio un error en el servidor').end();
+    }else
+    {
+      res.status(200).send("Registro exítoso").end();
+    }
   })
 });
 
-app.get("/GetAllNotes/:id",function(req,res){
+app.get("/GetAllNotes/:id", function (req, res) {
   db.query("select * from tareas where usuario = ?", [req.params.id], function (err, rows) {
     res.json(rows);
   })

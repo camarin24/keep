@@ -14,7 +14,6 @@
   });
 
   app.controller("loginController", function ($scope, $http) {
-    window.localStorage.UsuarioActivo = false;
     $scope.Users = {
       nombre: "",
       email: "",
@@ -30,7 +29,7 @@
       }).then(function successCallback(response) {
         if (response.data.length > 0) {
          sessionManager.setSession(response.data[0]);
-          window.location.href = location.origin + '/APP/';
+          location.href = location.origin + '/APP/';
         }
         else
           alert("Usuario y/o contraseña incorrectos");
@@ -48,7 +47,7 @@
       contra: ""
     }
      $scope.Volver = function () {
-              window.location.href = location.origin + '/APP/login';
+              window.location.href = location.origin + '/App/login';
      }
     $scope.Registrarse = function () {
       if ($scope.Users.nombre == "") {
@@ -71,14 +70,14 @@
               url: "http://localhost:8081/RegistrarUsuario",
               data: { Nombre: $scope.Users.nombre, Usuario: $scope.Users.email, Contra: $scope.Users.contra }
             }).then(function successCallback(response) {
-              alert("Registro exitoso");
+              alert(response.data);
               window.location.href = location.origin + '/APP/login';
             }, function errorCallback(response) {
-              console.log("errorcal" + response)
+              console.log("error" + response.data)
             });
           }
         }, function errorCallback(response) {
-          console.log("errorcal" + response)
+          console.log("error" + response.data)
         });
       }
     };
