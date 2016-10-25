@@ -52,6 +52,9 @@ body{
 .card .card-body .card-content{
     word-break: break-all;
 }
+.card-note > .fa{
+    margin-right: 20px;
+}
 .card .card-body .card-footer{
     background-color: #fdfdfd !important;
     padding: 15px 0px 0px 0px;
@@ -80,10 +83,16 @@ body{
 .note-card i{
     margin-top: 5px;
 }
-
-.card input.take-note{
+.card input.take-note-title{
     border: none;
     width: 80%;
+}
+.take-note-title::-webkit-input-placeholder {
+    color: #7d7d7d;
+}
+.card input.take-note{
+    border: none;
+    width: 100%;
 }
 .search-card{
     margin: 0px !important;
