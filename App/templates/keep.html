@@ -1,6 +1,11 @@
 <div class="row">
-    <div class="col-lg-offset-1 col-lg-10">
-        <div class="card note-card">
+    <div class="col-lg-offset-1 col-lg-10" ng-switch="NoteState">
+        <div class="card note-card" ng-switch-when="Original">
+            <input type="text" class="take-note" ng-click="ShowNote('Alterno')" placeholder="tomar una nota...">
+            <input type="file" class="fa fa-picture-o pull-right" aria-hidden="true" style="margin-left:10px;">           
+            <i class="fa fa-list-ul pull-right" aria-hidden="true" ng-click="ShowNote('Lista')"></i>
+        </div>
+        <div class="card note-card"  ng-switch-when="Alterno">
             <input type="text" class="take-note-title" placeholder="Titulo">
             <i class="fa fa-thumb-tack pull-right" aria-hidden="true"></i>
             <input type="text" class="take-note" placeholder="tomar una nota..."></textarea>
@@ -14,10 +19,19 @@
                 <i class="fa fa-check pull-right" aria-hidden="true"> Crear</i>
             </div>
         </div>
-        <div class="card note-card" style="display:none">
-            <input type="text" class="take-note" placeholder="tomar una nota...">
-            <i class="fa fa-picture-o pull-right" aria-hidden="true" style="margin-left:10px;"></i>
-            <i class="fa fa-list-ul pull-right" aria-hidden="true"></i>
+        <div class="card note-card" ng-switch-when="Lista">
+            <input type="text" class="take-note-title" placeholder="Titulo">
+            <i class="fa fa-thumb-tack pull-right" aria-hidden="true"></i>
+            <input type="text" class="take-note" placeholder="+  Elemento de lista"></textarea>
+            <div class="card-note">
+                <i class="fa fa-calendar-check-o" aria-hidden="true" data-toggle="tooltip" title="Añadir recordatorio" data-placement="bottom"></i>
+                <i class="fa fa-user-plus" aria-hidden="true" data-toggle="tooltip" title="Compartir" data-placement="bottom"></i>
+                <i class="fa fa-magic" aria-hidden="true" data-toggle="tooltip" title="Cambiar color" data-placement="bottom"></i>
+                <i class="fa fa-picture-o" aria-hidden="true" data-toggle="tooltip" title="Añadir imagen" data-placement="bottom"></i>
+                <i class="fa fa-archive" aria-hidden="true" data-toggle="tooltip" title="Archivar" data-placement="bottom"></i>
+                <i class="fa fa-th" aria-hidden="true" data-toggle="tooltip" title="Más" data-placement="bottom"></i>
+                <i class="fa fa-check pull-right" aria-hidden="true"> Crear</i>
+            </div>
         </div>
     </div>
 </div>
