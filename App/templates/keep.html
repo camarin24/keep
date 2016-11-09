@@ -1,9 +1,13 @@
 <div class="row">
     <div class="col-lg-offset-1 col-lg-10" ng-switch="NoteState">
+          
         <div class="card note-card" ng-switch-when="Original">
-            <input type="text" class="take-note" ng-click="ShowNote('Alterno')" placeholder="tomar una nota...">
-            <input type="file" class="fa fa-picture-o pull-right" aria-hidden="true" style="margin-left:10px;">           
-            <i class="fa fa-list-ul pull-right" aria-hidden="true" ng-click="ShowNote('Lista')"></i>
+            <input type="text" class="take-note"  ng-click="ShowNote('Alterno')" placeholder="tomar una nota...">
+           <input type="file" id="selectedFile" style="display: none;" />
+           <button onclick="document.getElementById('selectedFile').click();" class="pull-right" style="margin-left:10px;border:0px;background:transparent;">
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
+           </button>
+           <i class="fa fa-list-ul pull-right" aria-hidden="true" ng-click="ShowNote('Lista')"></i>
         </div>
         <div class="card note-card"  ng-switch-when="Alterno">
             <input type="text" class="take-note-title" placeholder="Titulo">
